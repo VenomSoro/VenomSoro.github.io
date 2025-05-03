@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VenomSoro's COVID-19 CDC Data Analysis - Covid Cases by Age</title>
+
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1><i>VenomSoro's COVID-19 CDC Data Analysis</i></h1>
+
+        <nav>
+            <ul>
+                <li><a href="../covidHome.html">Home</a></li>
+                <li><a href="byYear.html">Covid Cases by Year</a></li>
+                <li><a href="byAgeGroup.html">Covid Cases by Age Group</a></li>
+                <li><a href="byRaceOrEthnicity.html">Covid Cases by Race/Ethnicity</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="byAgeGroupApp">
+            <h2>Covid Cases by Age Group</h2>
+            <hr>
+
+            <div class="inlineDiv">
+                <label for="focus">Focus</label>
+
+                <select name="focus" id="focus" v-model="focus">
+                    <option value="select">Select</option>
+                    <option value="cases">Cases</option>
+                    <option value="deaths">Deaths</option>
+                </select>
+            </div>
+
+            <div v-if="focus == 'select'" class="outputDiv">Select a focus to display a graph</div>
+            <img v-else :src="graphImage" alt="">
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="../scripts/byAgeGroup.js"></script>
+</body>
+
+</html>

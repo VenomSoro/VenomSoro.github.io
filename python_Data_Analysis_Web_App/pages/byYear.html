@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VenomSoro's COVID-19 CDC Data Analysis - Covid Cases by Year</title>
+
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1><i>VenomSoro's COVID-19 CDC Data Analysis</i></h1>
+
+        <nav>
+            <ul>
+                <li><a href="../covidHome.html">Home</a></li>
+                <li><a href="byYear.html">Covid Cases by Year</a></li>
+                <li><a href="byAgeGroup.html">Covid Cases by Age Group</a></li>
+                <li><a href="byRaceOrEthnicity.html">Covid Cases by Race/Ethnicity</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="byYearApp">
+            <h2>Covid Cases by Year</h2>
+            <hr>
+
+            <div class="inlineDiv">
+                <label for="year">Year</label>
+
+                <select name="year" id="year" v-model="graph">
+                    <option value="select">Select</option>
+                    <option value="2020">2020</option>
+                    <option value="2021">2021</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="all">Combined</option>
+                </select>
+            </div>
+
+            <div v-if="graph == 'select'" class="outputDiv">
+                Select a year to display a graph
+            </div>
+            <img v-else :src="graphImage" alt="">
+        </section>
+    </main>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="../scripts/byYear.js"></script>
+</body>
+
+</html>

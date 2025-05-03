@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VenomSoro's COVID-19 CDC Data Analysis - Covid Cases by Race/Ethnicity</title>
+
+    <link rel="stylesheet" href="../styles/styles.css">
+</head>
+
+<body>
+    <header>
+        <h1><i>VenomSoro's COVID-19 CDC Data Analysis</i></h1>
+
+        <nav>
+            <ul>
+                <li><a href="../covidHome.html">Home</a></li>
+                <li><a href="byYear.html">Covid Cases by Year</a></li>
+                <li><a href="byAgeGroup.html">Covid Cases by Age Group</a></li>
+                <li><a href="byRaceOrEthnicity.html">Covid Cases by Race/Ethnicity</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="byRaceOrEthnicityApp">
+        <section>
+            <h2>Covid Cases by Race/Ethnicity</h2>
+            <hr>
+
+            <div class="inlineDiv">
+                <label for="focusOverall">Focus</label>
+
+                <select name="focusOverall" id="focusoverall" v-model="focusOverall">
+                    <option value="select">Select</option>
+                    <option value="cases">Cases</option>
+                    <option value="deaths">Deaths</option>
+                </select>
+            </div>
+
+            <div v-if="focusOverall == 'select'" class="outputDiv">Select a focus to display a graph</div>
+            <img v-else :src="overallGraphImage" alt="">
+        </section>
+        
+        <section>
+            <h2>Covid Cases by Age Group for Race/Ethnicity</h2>
+            <hr>
+
+            <div class="inlineDiv">
+                <label for="focusAgeGroups">Focus</label>
+
+                <select name="focusAgeGroups" id="focusAgeGroups" v-model="focusAgeGroups">
+                    <option value="select">Select</option>
+                    <option value="cases">Cases</option>
+                    <option value="deaths">Deaths</option>
+                </select>
+
+                <label for="race">Race</label>
+
+                <select name="race" id="race" v-model="race">
+                    <option value="select">Select</option>
+                    <option value="americanIndian_AlaskaNative">American Indian/Alaska Native</option>
+                    <option value="asian">Asian</option>
+                    <option value="black">Black</option>
+                    <option value="multiple_other">Multiple/Other</option>
+                    <option value="nativeHawaiian_OtherPacificIslander">Native Hawaiian/Other Pacific Islander</option>
+                    <option value="white">White</option>
+                </select>
+            </div>
+
+            <div v-if="focusAgeGroups == 'select'" class="outputDiv">Select a focus to display a graph</div>
+            <div v-else-if="race == 'select'" class="outputDiv">Select a race to display a graph</div>
+            <img v-else :src="ageGroupGraphImage" alt="">
+        </section>
+    </main>
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script src="../scripts/byRaceOrEthnicity.js"></script>
+</body>
+
+</html>
