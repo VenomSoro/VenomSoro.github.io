@@ -2,8 +2,7 @@
     --bodyBackgroundColor : #e5e5e5;
     --headerBackgroundColor: rgba(65, 65, 65, 0.2);
     --footerBackgroundColor: rgba(65, 65, 65, 0.2);
-    --sectionBackgroundColor: rgba(255, 255, 255, 0.4);
-    --sectionBackgrounColorHover: white;
+    --sectionBackgroundColor: rgb(255, 255, 255);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -83,12 +82,13 @@ section {
     width: 100%;
     max-width: 1200px;
     box-shadow: 0 4px 8px;
-    transition: background-color 1s ease-out
+    opacity: 0.4;
+    transition: opacity 1s ease-out
 }
 
 section:hover {
-    transition: background-color 1s ease;
-    background-color: var(--sectionBackgrounColorHover);
+    transition: opacity 1s ease;
+    opacity: 1.0;
 }
 
 section p {
@@ -100,6 +100,10 @@ section p a {
     text-decoration: none;
     font-weight: bold;
     transition: color 1s ease-out;
+}
+
+section video {
+    max-width: 100%;
 }
 
 p a:hover {
@@ -128,4 +132,63 @@ footer p {
 
 .outputDiv {
     text-align: center;
+}
+
+.dropDown::before {
+    content: "⮟ ";
+}
+
+.dropDown.clicked::before {
+    content: "⮝ ";
+}
+
+.dropContent {
+    display: none;
+    border-radius: 10px;
+}
+
+.dropContent.display {
+    display: block;
+}
+
+.scrollGallery {
+    max-width: 1160px;
+}
+
+.scrollImages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.scrollImages img {
+    width: 800px;
+    border-radius: 10px;
+}
+
+.scrollGallery[data-animated="true"] {
+    overflow: hidden;
+    /*white gradient on left and right edge of scrolling content*/
+    mask: linear-gradient(90deg, transparent, white 5%, white 95%, transparent);
+}
+
+/* Cotent inside needs to scroll*/
+.scrollGallery[data-animated="true"] .scrollImages {
+    width: fit-content;
+
+    flex-wrap: nowrap;
+
+    animation: scroll 45s var(--scrollDirection, forwards) Linear infinite;
+}
+
+.scrollGallery[data-direction="right"] {
+    --scrollDirection: reverse
+}
+
+@keyframes scroll{
+    to{
+        /*-0.5em to counter gap*/
+        transform: translate(calc(-50% - 0.5em));
+    }
 }

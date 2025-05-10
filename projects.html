@@ -63,8 +63,18 @@
                 was written for users to more easily select and view which graphs they wanted.
                 <br><br>
 
-                The Web Application can be found <a href="python_Data_Analysis_Web_App/covidHome.html" target="_blank">here</a>.
+                The Web Page for the graphs can be found <a href="python_Data_Analysis_Web_App/covidHome.html" target="_blank">here</a>.
+                <br><br> 
+                
+                The script used to work with the data along with a GUI Application to use the script's functions can be found <a href="https://github.com/VenomSoro/Covid-Analysis-Python-App/tree/main" target="_blank">here</a>.
+                <br><br>                
             </p>
+
+            <p class="dropDown" id="videoDrop" onclick="dropVideo('demoVideo')">Video Demo of Python GUI Application</p>
+            <video muted controls class="dropContent" id="demoVideo">
+                <source src="resources/videos/covidAnalysisAppDemo.mp4">
+            </video>
+
         </section>
 
         <Section>
@@ -85,5 +95,15 @@
             <i>by VenomSoro</i>
         </p>
     </footer>
+
+    <script>
+        function dropVideo(string) {
+            let videoDrop = document.getElementById("videoDrop");
+            videoDrop.classList.toggle("clicked")
+            
+            let content = document.getElementById(string)
+            content.classList.toggle("display")
+        }
+    </script>
 </body>
 </html>
