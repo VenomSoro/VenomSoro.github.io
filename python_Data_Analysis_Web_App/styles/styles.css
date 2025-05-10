@@ -80,11 +80,10 @@ select {
     width: fit-content;
     padding: 5px;
     height: fit-content;
-    margin-left: 1em;
-    margin-right: 1em;
 }
 
 label {
+    min-width: 4em;
     margin-bottom: 2px;
     color: rgb(65, 65, 65);
     font-weight: bold;

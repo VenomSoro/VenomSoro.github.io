@@ -135,11 +135,11 @@ footer p {
 }
 
 .dropDown::before {
-    content: "⮟ ";
+    content: "\25BC  ";
 }
 
 .dropDown.clicked::before {
-    content: "⮝ ";
+    content: "\25B2  ";
 }
 
 .dropContent {
